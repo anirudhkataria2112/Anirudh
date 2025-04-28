@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi Metro Journey Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <div class="welcome-content">
+            <div class="train-animation">
+                <div class="train-track"></div>
+                <div class="train">🚇</div>
+            </div>
+            <h1 class="welcome-title">Welcome to Delhi Metro Planner</h1>
+            <button class="enter-button">Plan Your Journey →</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Delhi Metro Journey Planner</h1>
+            <p>Plan your journey across Delhi Metro stations with ease.</p>
+        </header>
+
+        <main>
+            <div class="input-container">
+                <div class="input-group">
+                    <label for="boarding">Boarding Station</label>
+                    <input type="text" id="boarding" placeholder="Enter Boarding Station" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label for="destination">Destination Station</label>
+                    <input type="text" id="destination" placeholder="Enter Destination Station" autocomplete="off">
+                </div>
+                <button id="find-route">
+                    <span class="button-text">Find Route</span>
+                    <span class="loading-spinner"></span>
+                </button>
+            </div>
+
+            <div id="result" class="result-container">
+                <p class="placeholder-text">Enter your boarding and destination stations to find the best route.</p>
+            </div>
+
+            <button id="toggle-map" class="map-toggle">
+                <i class="fas fa-map"></i> Show Metro Map
+            </button>
+            
+            <div id="map-container" class="map-container"></div>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Delhi Metro Planner. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>
