@@ -608,6 +608,8 @@
               ["AQUA-20", "AQUA-21", 0.9]
           ]
       },
+
+      
       {
           "name": "Orange Line",
 "stations": [
@@ -633,15 +635,82 @@
     
     ["Dwarka Sector 21", "ORANGE-06", 20.8, 
      ["Interchange", "Cargo Facility", "Taxi Stand", "Premium Parking", "EV Charging Hub"], 
-     28.55226, 77.05828]
+     28.55226, 77.05828] ,
+    ["Yashobhoomi", "ORANGE-07", 22.2, 
+     ["India International Convention & Expo Centre (IICC)", "Exhibition Halls", "Parking Area", "Convention Hotels"], 
+      28.54617, 77.03092]
+
 ],
           "connections": [
               ["ORANGE-01", "ORANGE-02", 1.9],
               ["ORANGE-02", "ORANGE-03", 6.4],
               ["ORANGE-03", "ORANGE-04", 6.2],
               ["ORANGE-04", "ORANGE-05", 3.4],
-              ["ORANGE-05", "ORANGE-06", 2.9]
+              ["ORANGE-05", "ORANGE-06", 2.9],
+              ["ORANGE-06", "ORANGE-07", 1.4]
+              
           ]
+      },
+      {
+       "name": "Gurgaon Line",
+      "color": "#FFD700",
+      "stations": [
+        ["HUDA City Centre", "GURGAON-01", 0.0, ["DLF Mega Mall", "MG Road", "Sahara Mall", "Leisure Valley Park"], 28.4593, 77.0727],
+  ["Sector 45", "GURGAON-02", 1.2, ["Unitech Cyber Park", "Ireo Skyon Tower", "Sector 45 Market"], 28.4449, 77.0664],
+  ["Cyber Park", "GURGAON-03", 2.4, ["Cyber Hub", "Epicentre Mall", "Infosys Campus"],28.434555,  77.057886],
+  ["Sector 47", "GURGAON-04", 3.6, ["Vatika Business Park", "Sector 47 Market", "SCO Complex"], 28.4276, 77.0492],
+  ["Subhash Chowk", "GURGAON-05", 4.8, ["DLF Phase 4 Market", "M3M Golf Estate", "Sohna Road Commercial Complex"], 28.4287, 77.0369],
+  ["Sector 48", "GURGAON-06", 6.0, ["DLF Cyber City", "Tata Power Solar Plant", "The Oberoi Mall"], 28.427935, 77.034515],
+  ["Sector 72A", "GURGAON-07", 7.2, ["Industrial Area ", "Paras Downtown", "Sector 72A Commercial"], 28.430703, 77.017988],
+  ["Hero Honda Chowk", "GURGAON-08", 8.4, ["Hero Honda Chowk Market", "Leisure Valley", "Pride Plaza Hotel"], 28.4359, 77.0102],
+  ["Udyog Vihar Phase 6", "GURGAON-09", 9.6, ["Udyog Vihar Industrial Estate", "Hyundai India Office", "DLF Cyber City"],28.442383, 77.001026],
+  ["Sector 10", "GURGAON-10", 10.8, ["Sector 10 Market", "Fortis Hospital", "Unitech Business Park"], 28.4433, 76.9993],
+  ["Sector 37", "GURGAON-11", 12.0, ["Medanta Hospital", "Sector 37 Market", "IIT Delhi Extension Center"], 28.457420, 76.990261],
+  ["Basai Village", "GURGAON-12", 13.2, ["Basai Village Local Market", "Basai Wetlands", "Residential Complexes"], 28.462255, 76.990414 ],
+  ["Sector 9", "GURGAON-13", 14.4, ["Sector 9 Market", "Huda City Park", "Sector 9 Residential"], 28.465258, 76.994659 ],
+  ["Sector 7", "GURGAON-14", 15.6, ["Sector 7 Market", "Pataudi Road", "Residential Apartments"], 28.469053, 77.005427],
+  ["Sector 4", "GURGAON-15", 16.8, ["DLF Golf Course Road", "The Courtyard Market", "Hospitals"], 28.476392, 77.002178],
+  ["Sector 5", "GURGAON-16", 18.0, ["Cyber Greens", "Residential Society", "Retail Shops"], 28.480785, 77.014619],
+  ["Ashok Vihar", "GURGAON-17", 19.2, ["Ashok Vihar Market", "Residential Colony", "Community Center"], 28.490444, 77.019589],
+  ["Sector 3", "GURGAON-18", 20.4, ["Sector 3 Market", "Schools", "Hospitals"], 28.500966, 77.027250],
+  ["Bajghera Road", "GURGAON-19", 21.6, ["Bajghera Industrial Area", "Warehouse Complex", "Local Markets"],28.503483, 77.033092],
+  ["Palam Vihar Extension", "GURGAON-20", 22.8, ["Palam Vihar Market", "Residential Complexes", "Shopping Areas"], 28.508700, 77.040419],
+  ["Palam Vihar", "GURGAON-21", 24.0, ["Palam Vihar Sector Market", "Residential Complex", "Community Parks"], 28.508574, 77.046298],
+  ["Sector 23A", "GURGAON-22", 25.2, ["The NorthCap University", "Schools", "Local Shops"], 28.505927, 77.052478],
+  ["Sector 22", "GURGAON-23", 26.4, ["Sector 22 Market", "Residential Apartments", "Health Clinics"], 28.507737, 77.070138],
+  ["Udyog Vihar Phase 4", "GURGAON-24", 27.6, ["Udyog Vihar Phase 4 Industrial Park", "Logistics Centers", "Corporate Offices"], 28.506700, 77.083619],
+  ["Udyog Vihar Phase 5", "GURGAON-25", 28.8, ["Udyog Vihar Phase 5 IT Park", "Warehouses", "Industrial Units"], 28.501912, 77.089685],
+  ["Cyber City", "GURGAON-26", 30.0, ["Cyber Hub", "DLF Cyber City Mall", "Corporate Offices", "Restaurants"], 28.498107, 77.089283],
+  ["Moulsari Avenue", "GURGAON-27", 31.2, ["Moulsari Avenue Market", "IT Parks", "Residential Complexes"], 28.500668, 77.094769]
+      ],
+        "connections": [
+          ["GURGAON-01", "GURGAON-02", 1.2],
+          ["GURGAON-02", "GURGAON-03", 1.2],
+          ["GURGAON-03", "GURGAON-04", 1.2],
+          ["GURGAON-04", "GURGAON-05", 1.2],
+          ["GURGAON-05", "GURGAON-06", 1.2],
+          ["GURGAON-06", "GURGAON-07", 1.2],
+          ["GURGAON-07", "GURGAON-08", 1.2],
+          ["GURGAON-08", "GURGAON-09", 1.2],
+          ["GURGAON-09", "GURGAON-10", 1.2],
+          ["GURGAON-10", "GURGAON-11", 1.2],
+          ["GURGAON-11", "GURGAON-12", 1.2],
+          ["GURGAON-12", "GURGAON-13", 1.2],
+          ["GURGAON-13", "GURGAON-14", 1.2],
+          ["GURGAON-14", "GURGAON-15", 1.2],
+          ["GURGAON-15", "GURGAON-16", 1.2],
+          ["GURGAON-16", "GURGAON-17", 1.2],
+          ["GURGAON-17", "GURGAON-18", 1.2],
+          ["GURGAON-18", "GURGAON-19", 1.2],
+          ["GURGAON-19", "GURGAON-20", 1.2],
+          ["GURGAON-20", "GURGAON-21", 1.2],
+          ["GURGAON-21", "GURGAON-22", 1.2],
+          ["GURGAON-22", "GURGAON-23", 1.2],
+          ["GURGAON-23", "GURGAON-24", 1.2],
+          ["GURGAON-24", "GURGAON-25", 1.2],
+          ["GURGAON-25", "GURGAON-26", 1.2],
+          ["GURGAON-26", "GURGAON-27", 1.2]
+        ]
       },
       {
           "name": "Gray Line",
@@ -656,39 +725,44 @@
         ["GRAY-02", "GRAY-03", 3.1]
       ]
       }
+
   ],
+
+  
   "interchanges": [
-      ["RED-13", "PINK-33", 0.0],
-      ["RED-16", "YELLOW-12", 0.0],
-      ["RED-16", "VIOLET-01", 0.0],
-      ["RED-21", "GREEN-01", 0.0],
-      ["RED-24", "PINK-04", 0.0],
-      ["YELLOW-06", "PINK-02", 0.0],
-      ["YELLOW-12", "VIOLET-01", 0.0],
-      ["YELLOW-15", "ORANGE-01", 0.0],
-      ["YELLOW-16", "BLUE-29", 0.0],
-      ["YELLOW-18", "VIOLET-08", 0.0],
-      ["YELLOW-22", "PINK-16", 0.0],
-      ["YELLOW-25", "MAGENTA-12", 0.0],
-      ["YELLOW-34", "RAPID-04", 0.0],
-      ["BLUE-09", "GRAY-01", 0.0],
-      ["BLUE-14", "MAGENTA-01", 0.0],
-      ["BLUE-19", "PINK-08", 0.0],
-      ["BLUE-22", "GREEN_BRANCH-03", 0.0],
-      ["BLUE-29", "YELLOW-16", 0.0],
-      ["BLUE-31", "VIOLET-06", 0.0],
-      ["BLUE-36", "PINK-22", 0.0],
-      ["BLUE-42", "MAGENTA-25", 0.0],
-      ["BLUE-46", "AQUA-01", 0.0],
-      ["BLUE_BRANCH-05", "PINK-29", 0.0],
-      ["BLUE_BRANCH-06", "PINK-28", 0.0],
-      ["GREEN_BRANCH-01", "GREEN-02", 0.0],
-      ["VIOLET-12", "PINK-18", 0.0],
-      ["VIOLET-16", "MAGENTA-17", 0.0],
-      ["MAGENTA-25", "BLUE-42", 0.0],
-      ["PINK-12", "ORANGE-03", 0.0],
-      ["ORANGE-06", "BLUE-01", 0.0],
-      ["RAPID-04", "YELLOW-34", 0.0]
+    ["GURGAON-01", "YELLOW-37", 0.0],
+    ["GURGAON-26", "RAPID-06", 0.0],
+    ["RED-13", "PINK-33", 0.0],
+    ["RED-16", "YELLOW-12", 0.0],
+    ["RED-16", "VIOLET-01", 0.0],
+    ["RED-21", "GREEN-01", 0.0],
+    ["RED-24", "PINK-04", 0.0],
+    ["YELLOW-06", "PINK-02", 0.0],
+    ["YELLOW-12", "VIOLET-01", 0.0],
+    ["YELLOW-15", "ORANGE-01", 0.0],
+    ["YELLOW-16", "BLUE-29", 0.0],
+    ["YELLOW-18", "VIOLET-08", 0.0],
+    ["YELLOW-22", "PINK-16", 0.0],
+    ["YELLOW-25", "MAGENTA-12", 0.0],
+    ["YELLOW-34", "RAPID-04", 0.0],
+    ["BLUE-09", "GRAY-01", 0.0],
+    ["BLUE-14", "MAGENTA-01", 0.0],
+    ["BLUE-19", "PINK-08", 0.0],
+    ["BLUE-22", "GREEN_BRANCH-03", 0.0],
+    ["BLUE-29", "YELLOW-16", 0.0],
+    ["BLUE-31", "VIOLET-06", 0.0],
+    ["BLUE-36", "PINK-22", 0.0],
+    ["BLUE-42", "MAGENTA-25", 0.0],
+    ["BLUE-46", "AQUA-01", 0.0],
+    ["BLUE_BRANCH-05", "PINK-29", 0.0],
+    ["BLUE_BRANCH-06", "PINK-28", 0.0],
+    ["GREEN_BRANCH-01", "GREEN-02", 0.0],
+    ["VIOLET-12", "PINK-18", 0.0],
+    ["VIOLET-16", "MAGENTA-17", 0.0],
+    ["MAGENTA-25", "BLUE-42", 0.0],
+    ["PINK-12", "ORANGE-03", 0.0],
+    ["ORANGE-06", "BLUE-01", 0.0],
+    ["RAPID-04", "YELLOW-34", 0.0]
       
   ]
 }

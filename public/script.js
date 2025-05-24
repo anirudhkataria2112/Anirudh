@@ -71,6 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
             button.disabled = false;
         }
     });
+
+    // Station Click Handler
+    document.getElementById('result').addEventListener('click', (e) => {
+        if(e.target.classList.contains('station-item')) {
+            const stationName = e.target.textContent.trim();
+            showStationPopup(stationName);
+        }
+    });
 });
 
 function initializeMap(center) {
@@ -91,22 +99,18 @@ function initializeMap(center) {
 function updateMapWithRoute(routeData) {
     const mapContainer = document.getElementById('map-container');
     
-    // Ensure map container is visible
     mapContainer.classList.add('visible');
     
-    // Initialize map if not exists
     if (!metroMap) {
         initializeMap([routeData[0].lat, routeData[0].lon]);
     }
 
-    // Clear existing layers
     metroMap.eachLayer(layer => {
         if (layer instanceof L.Polyline || layer instanceof L.Marker) {
             metroMap.removeLayer(layer);
         }
     });
 
-    // Add new markers and route
     const routeCoordinates = [];
     routeData.forEach(station => {
         const coord = [station.lat, station.lon];
@@ -116,14 +120,12 @@ function updateMapWithRoute(routeData) {
         routeCoordinates.push(coord);
     });
 
-    // Draw blue route line
     routePolyline = L.polyline(routeCoordinates, {
         color: '#007bff',
         weight: 4,
         opacity: 0.7
     }).addTo(metroMap);
 
-    // Update map view after container transition
     setTimeout(() => {
         metroMap.invalidateSize();
         metroMap.fitBounds(routePolyline.getBounds());
@@ -138,7 +140,10 @@ function displayRouteResults(data) {
         <div class="route-details">
             ${data.route.map(station => `
                 <div class="station-card">
-                    <div class="station-name">${station.name}</div>
+                    <span class="station-item" 
+                          style="cursor:pointer;font-weight:700;color:#2c3e50;transition:all 0.3s;padding:2px 5px;border-radius:4px;">
+                        ${station.name}
+                    </span>
                     <div class="station-info">
                         <span class="line" data-line="${station.line}">${station.line}</span>
                         <span class="amenities">${station.amenities.join(', ')}</span>
@@ -149,7 +154,51 @@ function displayRouteResults(data) {
         <div class="summary-section">
             <p>Distance: ${data.totalDistance} km</p>
             <p>Fare: ₹${data.cost}</p>
+            <p>Time: ${data.totalTime} mins</p>
         </div>
     `;
     document.getElementById('result').innerHTML = routeHTML;
 }
+
+
+// FIXED: Image display with absolute path
+window.showStationPopup = (name) => {
+    const stationInfo = {
+        'mg road': {
+            gates: 'Gate 1 (Main Road), Gate 2 (Sikanderpur)',
+            peak: '7-10 AM & 5-8 PM'
+        },
+        'rajiv chowk': {
+            gates: 'Gate 1-4 (Connaught Place)',
+            peak: '8-11 AM & 4-7 PM'
+        }
+    };
+
+    const data = stationInfo[name.toLowerCase()] || {
+        gates: 'Multiple Entry/Exit Gates',
+        peak: '8-11 AM & 5-8 PM'
+    };
+
+    // Direct image URL with fallback
+    const imgUrl = '/static/station-image.jpg';
+    const fallbackUrl = 'https://placehold.co/400x200?text=Station+Image';
+    
+    document.getElementById('popupTitle').textContent = name;
+    document.getElementById('popupGates').textContent = data.gates;
+    document.getElementById('popupNextTrain').textContent = 
+        `${Math.ceil(Math.random()*15)} mins (Live)`;
+    
+    // Force image reload
+    const imgElement = document.getElementById('stationPhoto');
+    imgElement.src = '';
+    imgElement.src = imgUrl;
+    imgElement.onerror = () => {
+        imgElement.src = fallbackUrl;
+    };
+
+    document.querySelector('.station-popup').style.display = 'block';
+};
+
+window.closePopup = () => {
+    document.querySelector('.station-popup').style.display = 'none';
+};

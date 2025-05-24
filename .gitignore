@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Log files
+*.log
+
+# Mac system files
+.DS_Store
+
+# Build and runtime files
+dist/
+.env
+.vscode/
+.idea/
+
+# Cache
+.cache/
+*.tmp
+
+# Netlify and deployment
+.netlify/

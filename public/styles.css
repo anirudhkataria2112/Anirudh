@@ -1,6 +1,8 @@
 :root {
     /* Metro Color Scheme */
     --primary-blue: #007bff;
+    --metro-gurgaon: #B8860B; /* Dark Yellow / Goldenrod for Gurgaon Line */
+
     --secondary-blue: #0056b3;
     --metro-yellow: #FFD700;
     --metro-red: #DC143C;
@@ -353,11 +355,18 @@ header p {
 .line[data-line="Orange Line"] { background: rgba(255,140,0,0.1); color: var(--metro-orange); }
 .line[data-line="Aqua Line"] { background: rgba(0,206,209,0.1); color: var(--metro-aqua); }
 .line[data-line="Gray Line"],
+
 .line[data-line="Rapid Metro"] { background: rgba(128,128,128,0.1); color: var(--metro-gray); }
 .line[data-line="Blue Branch Line"] {
     background: rgba(0,123,255,0.1);
     color: var(--metro-blue);
 }
+.line[data-line="Gurgaon Line"] {
+    background: rgba(184, 134, 11, 0.15); /* darker yellow background */
+    color: var(--metro-gurgaon);         /* dark goldenrod text */
+}
+
+
 
 .amenities {
     color: var(--text-light);

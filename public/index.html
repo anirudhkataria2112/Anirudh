@@ -7,8 +7,123 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Zapier Chatbot Script -->
+    <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+    
+    <!-- Google Translate Integration -->
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'hi,es,fr,de,ta,te,mr,bn,pa,ur',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+      /* --- Language Selector Styling --- */
+      #google_translate_element {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 999999;
+      }
+
+      .goog-te-combo {
+        padding: 8px 24px !important;
+        border-radius: 8px !important;
+        border: 2px solid #2c3e50 !important;
+        background: white !important;
+        color: #2c3e50 !important;
+        font-size: 14px !important;
+        cursor: pointer !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        transition: all 0.3s !important;
+      }
+
+      .goog-te-combo:hover {
+        background: #f8f9fa !important;
+        transform: translateY(-1px) !important;
+      }
+
+      .goog-te-gadget {
+        color: transparent !important;
+      }
+
+      .goog-te-banner-frame {
+        display: none !important;
+      }
+
+      body {
+        top: 0 !important;
+      }
+
+      .goog-te-gadget-icon {
+        display: none !important;
+      }
+
+      /* Station Popup Styles */
+      .station-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 99999;
+        max-width: 400px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        display: none;
+      }
+      .station-popup img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      /* Chatbot Styling */
+      zapier-interfaces-chatbot-embed {
+        --zapier-interfaces-primary-color: #007bff;
+        --zapier-interfaces-chat-width: 380px;
+        --zapier-interfaces-chat-height: 600px;
+      }
+    </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div id="google_translate_element"></div>
+
+    <!-- Zapier Chatbot -->
+    <zapier-interfaces-chatbot-embed 
+        is-popup='true' 
+        chatbot-id='cmb22d0mr001tiebjavboilw6'
+        style="position:fixed;bottom:20px;right:20px;z-index:99999">
+    </zapier-interfaces-chatbot-embed>
+
+    <!-- Station Popup -->
+    <div id="stationPopup" class="station-popup">
+        <span onclick="closePopup()" style="position:absolute;right:15px;top:10px;cursor:pointer;font-size:24px">&times;</span>
+        <img id="stationPhoto" 
+             src="/static/station-image.jpg"
+             style="width:100%;height:200px;object-fit:cover;border-radius:8px"
+             onerror="this.src='https://placehold.co/400x200?text=Station+Image'">
+        <h2 id="popupTitle" style="margin:10px 0"></h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px">
+            <div>
+                <p style="margin:5px 0"><i class="fas fa-door-open"></i> <b>Entry Gates:</b><br><span id="popupGates">Gate 1, 2</span></p>
+                <p style="margin:5px 0"><i class="fas fa-clock"></i> <b>Timings:</b><br>5:30 AM - 11 PM</p>
+            </div>
+            <div>
+                <p style="margin:5px 0"><i class="fas fa-users"></i> <b>Peak Hours:</b><br>8-11 AM, 5-8 PM</p>
+                <p style="margin:5px 0"><i class="fas fa-subway"></i> <b>Next Train:</b><br><span id="popupNextTrain" style="color:green">5-8 mins</span></p>
+            </div>
+        </div>
+    </div>
+
     <!-- Splash Screen -->
     <div class="splash-screen">
         <div class="welcome-content">
@@ -62,5 +177,22 @@
 
     <script src="script.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Popup Logic -->
+    <script>
+      function closePopup() {
+        document.getElementById('stationPopup').style.display = 'none';
+      }
+
+      document.addEventListener('click', function(e) {
+        if(e.target.closest('.station-item')) {
+          const stationName = e.target.textContent.trim();
+          document.getElementById('popupTitle').textContent = stationName;
+          document.getElementById('popupNextTrain').textContent = 
+            `${Math.ceil(Math.random()*15)} mins (Live)`;
+          document.getElementById('stationPopup').style.display = 'block';
+        }
+      });
+    </script>
 </body>
 </html>
